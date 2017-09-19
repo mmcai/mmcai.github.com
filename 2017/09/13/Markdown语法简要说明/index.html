@@ -42,7 +42,7 @@
 <meta property="og:url" content="http://blog.mmcai.cn/2017/09/13/Markdown语法简要说明/index.html">
 <meta property="og:site_name" content="拾荒者">
 <meta property="og:description" content="什么是Markdown?markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容有一定的格式——摘自百度百科。 简单理解就是，通过一种特有的写法，能够让普通的文本有一种更加优雅展现的语法，我们在各种编辑器里面能够用markdown语法，说明，该编辑器支持markdown语法，例如：有道云，vsCode，WebStrom，Atom，印象笔记(EverNot">
-<meta property="og:updated_time" content="2017-09-18T10:39:49.102Z">
+<meta property="og:updated_time" content="2017-09-19T03:58:07.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown语法简要说明">
 <meta name="twitter:description" content="什么是Markdown?markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容有一定的格式——摘自百度百科。 简单理解就是，通过一种特有的写法，能够让普通的文本有一种更加优雅展现的语法，我们在各种编辑器里面能够用markdown语法，说明，该编辑器支持markdown语法，例如：有道云，vsCode，WebStrom，Atom，印象笔记(EverNot">
@@ -135,14 +135,43 @@
 <h4 id="语法介绍"><a href="#语法介绍" class="headerlink" title="语法介绍"></a>语法介绍</h4><p>markdown语法很简单，这里只说明一些简单的语法，也就是日常使用最频繁的内容，主要包括如下内容：</p>
 <ul>
 <li>标题 </li>
-<li>段落</li>
+<li>段落和换行</li>
 <li>链接</li>
 <li>列表</li>
 <li>代码块</li>
 <li>引用</li>
+<li>其它</li>
 </ul>
-<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>写这份文章的目的，其实主要是为了更加的了解和熟悉markdown语法，因为自己工作的原因，经常会要码字。同时也是为了加深自己对markdown的理解。</p>
-<p>文章的大部分内容和观点参考如下网站：<br><a href="http://www.baidu.com/" target="_blank" rel="external">百度</a><br><a href="http://google.com/" target="_blank" rel="external">Google</a></p>
+<blockquote>
+<p>标题</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 标题（一级标题）</div><div class="line">## 标题 （二级标题）</div><div class="line">### 标题 （二级标题）</div><div class="line">#### 标题 （二级标题）</div><div class="line">##### 标题 （二级标题）</div></pre></td></tr></table></figure>
+<blockquote>
+<p>段落和换行</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">段落</div><div class="line">一个markdown短链是由一个或者多个连续的文本行组成，在文本的前后空行，就可以表示段落</div><div class="line"></div><div class="line">换行</div><div class="line">两个英文空格+回车键，就可以在段落当中进行换行了</div></pre></td></tr></table></figure>
+<blockquote>
+<p>链接</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[百度](http://www.baidu.com/)</div><div class="line"></div><div class="line">或者</div><div class="line"></div><div class="line">[百度][]</div><div class="line">[百度]:http://www.baidu.com/;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>列表</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">无需列表</div><div class="line"></div><div class="line">第一种：</div><div class="line">* 上海</div><div class="line">* 背景</div><div class="line">* 深圳</div><div class="line">* 北京</div><div class="line"></div><div class="line">第二种：</div><div class="line">+ 上海</div><div class="line">+ 背景</div><div class="line">+ 深圳</div><div class="line">+ 北京</div><div class="line"></div><div class="line"></div><div class="line">第三种：</div><div class="line">- 上海</div><div class="line">- 背景</div><div class="line">- 深圳</div><div class="line">- 北京</div><div class="line"></div><div class="line">有序列表</div><div class="line">1. 上海</div><div class="line">2. 背景</div><div class="line">3. 深圳</div><div class="line">4. 北京</div></pre></td></tr></table></figure>
+<blockquote>
+<p>代码块</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">第一种：</div><div class="line">使用pre和code标签</div><div class="line"></div><div class="line">第二种：</div><div class="line">使用三个英文反点号</div></pre></td></tr></table></figure>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">使用英文的左尖括号&quot;&gt;&quot;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>其它</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">图片：</div><div class="line">在链接的使用方法前面添加感叹号，例如：</div><div class="line">![图片的alt说明文章](图片的地址)</div><div class="line">![美女](https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_ca79a146.png)</div><div class="line"></div><div class="line">或者</div><div class="line"></div><div class="line">![美女][]</div><div class="line">[美女]:https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_ca79a146.png</div><div class="line"></div><div class="line">自动链接：</div><div class="line">&lt;http://example.com/&gt;</div><div class="line">markdown会转成：&lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;</div><div class="line"></div><div class="line"></div><div class="line">反斜杠：</div><div class="line">\* 你好 \* 表示：* 你好 *</div><div class="line"></div><div class="line">强调：</div><div class="line">* 强调的文章 *</div><div class="line">- 强调的内容 -</div><div class="line"></div><div class="line">** strong 标签的强调 **</div><div class="line">-- strong 标签的强调 --</div></pre></td></tr></table></figure>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>写这份文章的目的，其实主要是为了更加的了解和熟悉markdown语法，因为自己工作的原因，经常会要码字。同时也是为了加深自己对markdown的理解，它还有一些高级的使用部分，如果您有兴趣还可以继续探索!</p>
+<p>文章的大部分内容和观点参考如下网站：<br><a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="external">http://wowubuntu.com/markdown/basic.html</a><br><a href="http://wowubuntu.com/markdown/index.html" target="_blank" rel="external">http://wowubuntu.com/markdown/index.html</a></p>
 
             </div>
           
