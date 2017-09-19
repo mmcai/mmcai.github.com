@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="http权威指南学习笔记1"/>
+
+
+
+
+  <meta name="keywords" content="http,http协议,学习," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="拾荒者">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://blog.mmcai.cn/2017/09/19/http权威指南学习笔记（第一章/"/>
+
+
+<meta name="description" content="什么是HTTPhttp是一种网络通信协议，位于OSI网络模型的第七层，属于应用层协议。http超文本传输协议，是基于TCP/IP通信协议来传递数据。WEB浏览器、服务器和相关的WEB应用程序都是通过HTTP相互通讯的，通过HTTP协议我们可以在浏览器和服务器之前传递：文本，图片，多媒体，html文件，word文件等 HTTP在浏览器中的工作过程 地址解析  当我们在浏览器的地址栏里面输入 “htt">
+<meta name="keywords" content="http,http协议,学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http权威指南学习笔记1">
+<meta property="og:url" content="http://blog.mmcai.cn/2017/09/19/http权威指南学习笔记（第一章/index.html">
+<meta property="og:site_name" content="拾荒者">
+<meta property="og:description" content="什么是HTTPhttp是一种网络通信协议，位于OSI网络模型的第七层，属于应用层协议。http超文本传输协议，是基于TCP/IP通信协议来传递数据。WEB浏览器、服务器和相关的WEB应用程序都是通过HTTP相互通讯的，通过HTTP协议我们可以在浏览器和服务器之前传递：文本，图片，多媒体，html文件，word文件等 HTTP在浏览器中的工作过程 地址解析  当我们在浏览器的地址栏里面输入 “htt">
+<meta property="og:updated_time" content="2017-09-19T09:29:06.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http权威指南学习笔记1">
+<meta name="twitter:description" content="什么是HTTPhttp是一种网络通信协议，位于OSI网络模型的第七层，属于应用层协议。http超文本传输协议，是基于TCP/IP通信协议来传递数据。WEB浏览器、服务器和相关的WEB应用程序都是通过HTTP相互通讯的，通过HTTP协议我们可以在浏览器和服务器之前传递：文本，图片，多媒体，html文件，word文件等 HTTP在浏览器中的工作过程 地址解析  当我们在浏览器的地址栏里面输入 “htt">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> http权威指南学习笔记1 - 拾荒者 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">拾荒者</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                归档
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                关于
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          http权威指南学习笔记1
+        
+      </h1>
+
+      <time class="post-time">
+          9月 19 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h4 id="什么是HTTP"><a href="#什么是HTTP" class="headerlink" title="什么是HTTP"></a>什么是HTTP</h4><p>http是一种网络通信协议，位于OSI网络模型的第七层，属于应用层协议。<br>http超文本传输协议，是基于TCP/IP通信协议来传递数据。<br>WEB浏览器、服务器和相关的WEB应用程序都是通过HTTP相互通讯的，通过HTTP协议我们可以在浏览器和服务器之前传递：文本，图片，多媒体，html文件，word文件等</p>
+<h4 id="HTTP在浏览器中的工作过程"><a href="#HTTP在浏览器中的工作过程" class="headerlink" title="HTTP在浏览器中的工作过程"></a>HTTP在浏览器中的工作过程</h4><ul>
+<li><p>地址解析<br>  当我们在浏览器的地址栏里面输入 “<a href="http://www.baidu.com/a/img.jpg" target="_blank" rel="external">http://www.baidu.com/a/img.jpg</a>“ 的时候，浏览器就开始对改地址进行解析，解析的内容包括，协议名，主机名（主机地址），端口，请求的网络资源路径。<br>  上面的地址我们可以解析到的结果为：</p>
+<ul>
+<li>协议名：http</li>
+<li>主机名：www.baidu.com</li>
+<li>端口：如果没有提供，默认为80</li>
+<li>资源路径：/a/img.jpg<blockquote>
+<p>如果浏览器有做DNS缓存，我们就可以在缓存中找到主机域名对应的IP，如果没有会到操作系统当中读取DNS缓存（hosts文件)，如果再没有操作系统就会根据网络配置当中的DNS配置去解析相对应的IP</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>封装HTTP请求的数据包<br>  把地址解析返回的内容，结合客户端（浏览器）自己的信息，封装成一个HTTP请求的数据包（请求报文）<br>  一个HTTP请求报文的数据格式大致如下：</p>
+<blockquote>
+<p>Accept：告诉服务器能发送那些媒体类型<br>  Accept-Encoding：告诉服务器能发送那些编码方式<br>  Accept-Language:告诉服务器能够发送那些语言<br>  Accept-Charset:告诉服务器能够发送那些字符集<br>  Cookie:客户端cookie信息<br>  Referer:当前请求uri的文档的URL<br>  Connection:允许客户端和服务器指定与请求/响应相关的选项<br>  Cache-Control：用于随报文传送的缓存提示<br>  user-Agent：发起请求的应用程序名称</p>
+</blockquote>
+<p>  等等…</p>
+</li>
+<li><p>建立TCP/IP连接<br>  根据上面一步得到的信息，就会通过TCP/IP协议向服务器建立一个连接。建立连接的方式就是我们通常所说的TCP/IP三次握手<br>  1、访问的客户端A发送位码syn=1,随记生成seq number = 123456的数据包到服务器，服务器B由SYN=1知道，客户端A要求建立联机<br>  2、服务器B收到请求后要确认联机信息，向客户端A发送 ack number=(主机a的seq+1),syn=1,ack=1,随记产生seq=7654321的包<br>  3、主机A收到后检查ack number是否正确，以及位码ack是否为1，若正确，主机A再次发送ack number=(主机B的seq+1),ack=1,主机B收到后确认seq值与ack=1则建立连接成功。</p>
+</li>
+<li><p>发送报文数据<br>  通过上面一步建立的连接，客户端向WEB服务发送请求的报文，请求报文由，请求行、请求头部、空行、请求数据4部分组成</p>
+</li>
+<li><p>接收报文数据<br>  WEB服务器通过解析请求报文，定位请求的资源，然后将资源副本通过TCP建立的连接传给客户端。响应的报文由状态行，响应头部，空行，响应数据4部分组成。</p>
+</li>
+<li><p>关闭TCP/IP连接<br>  若请求头当中的connection字段为close，则服务器在数据返回之后主动关闭TCP连接，客户端被动关闭连接<br>  若请求头当中的connection字段为keep-alive，则该连接会保持一段时间，在该时间内可以继续互相传递数据</p>
+</li>
+<li><p>解析返回的内容<br>  客户端（通常是浏览器），首先解析状态行，查看表明请求是否成功，是否需要从缓存当中读取，然后解析每一个响应头，根据响应头信息来对响应的内容进行相关的编码和渲染，并在客户端当中显示。    </p>
+</li>
+</ul>
+<h4 id="HTTP主要包括那些内容"><a href="#HTTP主要包括那些内容" class="headerlink" title="HTTP主要包括那些内容"></a>HTTP主要包括那些内容</h4><ol>
+<li>URI</li>
+<li>网络资源</li>
+<li>事务</li>
+<li>报文</li>
+<li>连接</li>
+<li>协议版本</li>
+<li>web的结构组件（代理，缓存，网管，隧道）</li>
+<li>HTTP/2</li>
+</ol>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>《HTTP权威指南》<br><a href="http://www.cnblogs.com/ranyonsue/p/5984001.html" target="_blank" rel="external">http://www.cnblogs.com/ranyonsue/p/5984001.html</a><br><a href="http://blog.csdn.net/sundacheng1989/article/details/28239711" target="_blank" rel="external">http://blog.csdn.net/sundacheng1989/article/details/28239711</a><br><a href="http://blog.csdn.net/sundacheng1989/article/details/52437128" target="_blank" rel="external">http://blog.csdn.net/sundacheng1989/article/details/52437128</a></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/http/">http</a>
+		  
+			<a href="/tags/http协议/">http协议</a>
+		  
+			<a href="/tags/学习/">学习</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/09/19/浅析http-2/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">浅析http/2</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    &copy;2017-2018 浙ICP备17002319号-1
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
