@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="CSS系列——浏览器默认样式"/>
+
+
+
+
+  <meta name="keywords" content="CSS,CSS默认样式,CSS系列," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="拾荒者">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://blog.mmcai.cn/2017/09/20/CSS系列——浏览器默认样式/"/>
+
+
+<meta name="description" content="了解HTML标签在各浏览器当中的默认样式，可以让我们了解，为什么会要写Reset.css，Reset.css当中要怎么写样式最合理。试着思考下面的问题：  为什么会有默认样式？ 每个浏览器的默认样式有什么不同？ Reset.css具体怎么写，每个浏览器展示的效果才会一致？  默认样式这里说的默认样式其实是每个浏览器自己的默认样式，我们通常使用style或者link的形式应用的样式内容被成为“用户样">
+<meta name="keywords" content="CSS,CSS默认样式,CSS系列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS系列——浏览器默认样式">
+<meta property="og:url" content="http://blog.mmcai.cn/2017/09/20/CSS系列——浏览器默认样式/index.html">
+<meta property="og:site_name" content="拾荒者">
+<meta property="og:description" content="了解HTML标签在各浏览器当中的默认样式，可以让我们了解，为什么会要写Reset.css，Reset.css当中要怎么写样式最合理。试着思考下面的问题：  为什么会有默认样式？ 每个浏览器的默认样式有什么不同？ Reset.css具体怎么写，每个浏览器展示的效果才会一致？  默认样式这里说的默认样式其实是每个浏览器自己的默认样式，我们通常使用style或者link的形式应用的样式内容被成为“用户样">
+<meta property="og:updated_time" content="2017-09-20T10:17:51.228Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS系列——浏览器默认样式">
+<meta name="twitter:description" content="了解HTML标签在各浏览器当中的默认样式，可以让我们了解，为什么会要写Reset.css，Reset.css当中要怎么写样式最合理。试着思考下面的问题：  为什么会有默认样式？ 每个浏览器的默认样式有什么不同？ Reset.css具体怎么写，每个浏览器展示的效果才会一致？  默认样式这里说的默认样式其实是每个浏览器自己的默认样式，我们通常使用style或者link的形式应用的样式内容被成为“用户样">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> CSS系列——浏览器默认样式 - 拾荒者 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">拾荒者</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                归档
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                关于
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          CSS系列——浏览器默认样式
+        
+      </h1>
+
+      <time class="post-time">
+          9月 20 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>了解HTML标签在各浏览器当中的默认样式，可以让我们了解，为什么会要写Reset.css，Reset.css当中要怎么写样式最合理。<br>试着思考下面的问题：</p>
+<ul>
+<li>为什么会有默认样式？</li>
+<li>每个浏览器的默认样式有什么不同？</li>
+<li>Reset.css具体怎么写，每个浏览器展示的效果才会一致？</li>
+</ul>
+<h4 id="默认样式"><a href="#默认样式" class="headerlink" title="默认样式"></a>默认样式</h4><p>这里说的默认样式其实是每个浏览器自己的默认样式，我们通常使用style或者link的形式应用的样式内容被成为“用户样式”。<br>浏览器加载完一个页面之后的工作流程大概如下：<br>1、转换<br>2、令牌化<br>3、词法分析<br>4、DOM树构建<br>5、CSSOM树构建<br>6、DOM树与CSSOM树合并后形成渲染树<br>7、通过布局计算每个对象显示的位置和大小<br>8、绘制页面</p>
+<p>按照上面的流程，浏览器会查看文档当中是否有“用户样式”，如果没有就使用浏览器的默认样式，如果有就会用“用户样式”，就使用用户样式覆盖“浏览器默认样式”进行后面的渲染</p>
+<h4 id="隐藏元素"><a href="#隐藏元素" class="headerlink" title="隐藏元素"></a>隐藏元素</h4><p>我们知道HTML标签当中的head，title，meta,link,style,script元素默认是不展示的，就是因为浏览器的默认样式当中定义了display:none属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">head,meta,title,link,style,script&#123;</div><div class="line">    display:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>您可以通过定义如下代码在浏览器当中查看下效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">head&#123;</div><div class="line">    display:block;</div><div class="line">    width:80px;</div><div class="line">    height:80px;</div><div class="line">    background:#f00;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h4><h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://github.com/sw4/revert.css" target="_blank" rel="external">GitHub仓库</a></p>
+<p><a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css" target="_blank" rel="external">Chrom-blink</a><br><a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css" target="_blank" rel="external">Chrom-webkit</a><br><a href="https://web.archive.org/web/20161031005401/http://www.iecss.com/opera-10.51.css" target="_blank" rel="external">Opera-10.51</a><br><a href="https://web.archive.org/web/20170122223926/http://www.iecss.com/" target="_blank" rel="external">Internet Explorer</a><br><a href="https://www.w3.org/TR/CSS2/sample.html" target="_blank" rel="external">HTML4</a><br><a href="https://www.w3.org/TR/html5/rendering.html" target="_blank" rel="external">HTML5</a><br><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/?hl=zh-cn" target="_blank" rel="external">浏览器渲染</a></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/CSS/">CSS</a>
+		  
+			<a href="/tags/CSS默认样式/">CSS默认样式</a>
+		  
+			<a href="/tags/CSS系列/">CSS系列</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/09/20/CSS系列——工作原理/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">CSS系列——工作原理</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    &copy;2017-2018 浙ICP备17002319号-1
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
