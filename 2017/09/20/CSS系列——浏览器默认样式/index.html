@@ -42,10 +42,14 @@
 <meta property="og:url" content="http://blog.mmcai.cn/2017/09/20/CSS系列——浏览器默认样式/index.html">
 <meta property="og:site_name" content="拾荒者">
 <meta property="og:description" content="了解HTML标签在各浏览器当中的默认样式，可以让我们了解，为什么会要写Reset.css，Reset.css当中要怎么写样式最合理。试着思考下面的问题：  为什么会有默认样式？ 每个浏览器的默认样式有什么不同？ Reset.css具体怎么写，每个浏览器展示的效果才会一致？  默认样式这里说的默认样式其实是每个浏览器自己的默认样式，我们通常使用style或者link的形式应用的样式内容被成为“用户样">
-<meta property="og:updated_time" content="2017-09-20T10:17:51.228Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3087126-f97fd0d8e6a4316c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3087126-8293f7598b1a5f90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3087126-e7a40d92f5d8c7a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-21T06:32:16.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS系列——浏览器默认样式">
 <meta name="twitter:description" content="了解HTML标签在各浏览器当中的默认样式，可以让我们了解，为什么会要写Reset.css，Reset.css当中要怎么写样式最合理。试着思考下面的问题：  为什么会有默认样式？ 每个浏览器的默认样式有什么不同？ Reset.css具体怎么写，每个浏览器展示的效果才会一致？  默认样式这里说的默认样式其实是每个浏览器自己的默认样式，我们通常使用style或者link的形式应用的样式内容被成为“用户样">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3087126-f97fd0d8e6a4316c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
@@ -139,8 +143,94 @@
 <p>按照上面的流程，浏览器会查看文档当中是否有“用户样式”，如果没有就使用浏览器的默认样式，如果有就会用“用户样式”，就使用用户样式覆盖“浏览器默认样式”进行后面的渲染</p>
 <h4 id="隐藏元素"><a href="#隐藏元素" class="headerlink" title="隐藏元素"></a>隐藏元素</h4><p>我们知道HTML标签当中的head，title，meta,link,style,script元素默认是不展示的，就是因为浏览器的默认样式当中定义了display:none属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">head,meta,title,link,style,script&#123;</div><div class="line">    display:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>您可以通过定义如下代码在浏览器当中查看下效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">head&#123;</div><div class="line">    display:block;</div><div class="line">    width:80px;</div><div class="line">    height:80px;</div><div class="line">    background:#f00;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h4><h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://github.com/sw4/revert.css" target="_blank" rel="external">GitHub仓库</a></p>
-<p><a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css" target="_blank" rel="external">Chrom-blink</a><br><a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css" target="_blank" rel="external">Chrom-webkit</a><br><a href="https://web.archive.org/web/20161031005401/http://www.iecss.com/opera-10.51.css" target="_blank" rel="external">Opera-10.51</a><br><a href="https://web.archive.org/web/20170122223926/http://www.iecss.com/" target="_blank" rel="external">Internet Explorer</a><br><a href="https://www.w3.org/TR/CSS2/sample.html" target="_blank" rel="external">HTML4</a><br><a href="https://www.w3.org/TR/html5/rendering.html" target="_blank" rel="external">HTML5</a><br><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/?hl=zh-cn" target="_blank" rel="external">浏览器渲染</a></p>
+<h4 id="block元素"><a href="#block元素" class="headerlink" title="block元素"></a>block元素</h4><p>块元素的特点：</p>
+<blockquote>
+<ol>
+<li>每个块元素都是从新的一行开始（独占一行）</li>
+<li>可以设置width,height,margin,border,padding</li>
+<li>可以嵌套其它标签元素</li>
+<li>默认块元素的宽度等于父元素的宽度</li>
+<li>可以通过定义display:block，把元素设置为块元素</li>
+</ol>
+</blockquote>
+<p>HTML标签当中，那些被称为块元素的标签之所以有块元素的属性，是因为浏览器默认给它定义了display:block<br>而不是因为是块元素才会有display:block属性。</p>
+<p><strong>所有定义了display:block的元素，都是块元素</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">html,</div><div class="line">body,</div><div class="line">p,</div><div class="line">div,</div><div class="line">layer,</div><div class="line">article,aside,footer,header,hgroup,main,nav,section,</div><div class="line">address,</div><div class="line">blockquote,</div><div class="line">figure,</div><div class="line">center,</div><div class="line">hr,</div><div class="line">ol,ul,menu,dir,dd,dl,form,legend,fieldset,frameset,frame,details,summary</div><div class="line">h1,h2,h3,h4,h5,h6&#123;</div><div class="line">    display:block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="inline元素"><a href="#inline元素" class="headerlink" title="inline元素"></a>inline元素</h4><p>行内元素的特点：</p>
+<blockquote>
+<ol>
+<li>和其它元素在同一行</li>
+<li>width，height，margin-top,margin-bottom不可以控制元素的展现形式（定义无效）</li>
+<li>margin-left,margin-right,和padding可以定义</li>
+<li>默认宽度是它所容纳内容的宽度</li>
+<li>通过定义display:block,可以把行内元素设置为块元素</li>
+</ol>
+</blockquote>
+<p>所有的元素默认都是行内元素，也就是display:inline</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">q,</div><div class="line">map,</div><div class="line">area,</div><div class="line">output</div><div class="line">&#123;</div><div class="line">    display:inline;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="display属性"><a href="#display属性" class="headerlink" title="display属性"></a>display属性</h4><p>html标签在浏览器当中是以那种布局形式展示，都是因为display属性的定义，display属性包含以下值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">基本值：    none | inline | block | list-item | inline-block</div><div class="line">table系列： table | inline-table | table-caption | table-cell | table-row | table-row-group | table-column | table-columen-group | table-footer-group | table-header-group</div><div class="line">css3新增： box | inline-box | flexbox | inline-flexbox | flex | inline-flex | run-in</div></pre></td></tr></table></figure>
+<p><strong>基本值</strong></p>
+<blockquote>
+<ul>
+<li>none  隐藏元素</li>
+<li>inline    设置为行内元素</li>
+<li>block     设置为块元素</li>
+<li>inline-block  设置为inline-block</li>
+<li>list-item     设置为list-item</li>
+</ul>
+</blockquote>
+<p>li标签默认定义的display:list-item，尝试定义如下的代码，在浏览器中查看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">html</div><div class="line">    &lt;div class=&quot;list&quot;&gt;</div><div class="line">        &lt;span class=&quot;item&quot;&gt;1&lt;/span&gt;</div><div class="line">        &lt;span class=&quot;item&quot;&gt;2&lt;/span&gt;</div><div class="line">        &lt;span class=&quot;item&quot;&gt;3&lt;/span&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">CSS</div><div class="line">    .item&#123;</div><div class="line">        display:list-item;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><strong>table系列</strong></p>
+<blockquote>
+<ul>
+<li>table                 块元素的表格</li>
+<li>inline-table          行内元素的表格</li>
+<li>table-caption         定义表格头</li>
+<li>table-cell            表格单元格</li>
+<li>table-row             表格单元行</li>
+<li>table-row-group       单元行组</li>
+<li>table-column          表格列</li>
+<li>table-column-group    表格列组</li>
+<li>table-footer-group    表格底</li>
+<li>table-header-group    表格头</li>
+</ul>
+</blockquote>
+<p>看下面一段代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">    &lt;caption&gt;年龄列表&lt;/caption&gt;</div><div class="line">    &lt;thead&gt;</div><div class="line">         &lt;tr&gt;</div><div class="line">            &lt;th&gt;姓名&lt;/th&gt;</div><div class="line">            &lt;th&gt;年龄&lt;/th&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">    &lt;/thead&gt;</div><div class="line">    &lt;tfoot&gt;</div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;td&gt;年龄综合&lt;/td&gt;</div><div class="line">            &lt;td&gt;27&lt;/td&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">    &lt;/tfoot&gt;</div><div class="line">    &lt;tbody&gt;</div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;td&gt;张三&lt;/td&gt;</div><div class="line">            &lt;td&gt;12&lt;/td&gt;                </div><div class="line">        &lt;/tr&gt;</div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;td&gt;李四&lt;/td&gt;</div><div class="line">            &lt;td&gt;15&lt;/td&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">    &lt;/tbody&gt;        </div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
+<p>当我们使用thead定义表头的时候，默认显示的样式就是因为thead标签定义了display:table-header-group;<br>同样，tfoot就是因为定义了display:table-footer-group;<br>caption 就是因为定义了display:table-caption;</p>
+<p>关于table系列，我们简单了解两个问题：</p>
+<ol>
+<li>display:table和display:block的区别</li>
+<li>display:table-cell如何做多列布局</li>
+</ol>
+<p>block和table的区别<br>1、block宽度默认撑满父元素<br>2、table宽度根据内容而定</p>
+<p>table-cell的多列布局<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;main&quot;&gt;</div><div class="line">    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;middle&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">.main&#123; </div><div class="line">    width:500px;</div><div class="line">    display:table;</div><div class="line">&#125;</div><div class="line">.left,.middle,.right&#123;</div><div class="line">    display:table-cell;</div><div class="line">    height:100px;</div><div class="line">&#125;</div><div class="line">.left&#123;</div><div class="line">    width:20%;</div><div class="line">    background:#ff0;</div><div class="line">&#125;</div><div class="line">.middle&#123;</div><div class="line">    background:green;  </div><div class="line">&#125;</div><div class="line">.right&#123;</div><div class="line">    width:10%;</div><div class="line">    background:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://jsbin.com/roxelok/edit?html,css,output" target="_blank" rel="external">在线查看</a></p>
+<p><strong>CSS3系列</strong>，主要定义了弹性布局相关的内容</p>
+<blockquote>
+<ul>
+<li>box           弹性伸缩盒版本1</li>
+<li>inline-box    内联块弹性伸缩盒版本1</li>
+<li>flexbox       弹性伸缩盒版本2</li>
+<li>inline-flexbox内联块弹性伸缩盒版本2</li>
+<li>flex          弹性伸缩盒版本3</li>
+<li>inline-flex   内联块缩盒版本3</li>
+<li>run-in        根据上下文定义对象是内联还是块级</li>
+</ul>
+</blockquote>
+<p>弹性伸缩盒以后我们有机会详细聊聊，这里说说几个点<br>1、box和inline-box，flexbox和inline-flexbox，flex和inline-flex之间的差异<br>2、run-in是如何根据上下文作用的</p>
+<p><em>第一个问题</em></p>
+<p>在需要有固定宽度的情况下的弹性布局使用flex，<br>如果元素的宽度不固定，里面的标签还需要弹性布局的话，就是用inline-flex</p>
+<p>我们通过以下代码来了解<br><a href="https://jsbin.com/xacope/edit?html,css,output" target="_blank" rel="external">flex布局</a>;<br><a href="https://jsbin.com/xuyadir/edit?html,css,output" target="_blank" rel="external">inline-flex布局</a></p>
+<p><em>第二个问题</em></p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2012/03/tip-css-multiline-display/" target="_blank" rel="external">这里</a>有详细的解释</p>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p><strong>块元素</strong><br><img src="http://upload-images.jianshu.io/upload_images/3087126-f97fd0d8e6a4316c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="块"></p>
+<p><strong>行内元素</strong><br><img src="http://upload-images.jianshu.io/upload_images/3087126-8293f7598b1a5f90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="行内"></p>
+<p><strong>可变元素</strong><br><img src="http://upload-images.jianshu.io/upload_images/3087126-e7a40d92f5d8c7a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="可变"></p>
+<p>文章七七八八，扯了很多东西，有点乱，让看官们受累了</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://github.com/sw4/revert.css" target="_blank" rel="external">GitHub仓库</a></p>
+<p><a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css" target="_blank" rel="external">Chrom-blink</a><br><a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css" target="_blank" rel="external">Chrom-webkit</a><br><a href="https://web.archive.org/web/20161031005401/http://www.iecss.com/opera-10.51.css" target="_blank" rel="external">Opera-10.51</a><br><a href="https://web.archive.org/web/20170122223926/http://www.iecss.com/" target="_blank" rel="external">Internet Explorer</a><br><a href="https://www.w3.org/TR/CSS2/sample.html" target="_blank" rel="external">HTML4</a><br><a href="https://www.w3.org/TR/html5/rendering.html" target="_blank" rel="external">HTML5</a><br><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/?hl=zh-cn" target="_blank" rel="external">浏览器渲染</a><br><a href="http://www.cnblogs.com/wangfupeng1988/p/4280801.html" target="_blank" rel="external">解读默认样式</a></p>
 
             </div>
           
