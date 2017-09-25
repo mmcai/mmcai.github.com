@@ -47,7 +47,10 @@
 <meta property="og:image" content="http://7b1evr.com1.z0.glb.clouddn.com/illustration%5CCollapsingct_css_margin_collapsing_example_1.gif">
 <meta property="og:image" content="http://7b1evr.com1.z0.glb.clouddn.com/illustration%5CCollapsingct_css_margin_collapsing_example_3.gif">
 <meta property="og:image" content="http://7b1evr.com1.z0.glb.clouddn.com/illustration%5CCollapsingct_css_margin_collapsing_example_4.gif">
-<meta property="og:updated_time" content="2017-09-21T10:39:02.749Z">
+<meta property="og:image" content="http://images0.gejiawen.com/posts/css-box-model-guide/003.png">
+<meta property="og:image" content="https://www.qianduan.net/img/2009/06/133821ssb.png">
+<meta property="og:image" content="https://www.qianduan.net/img/2009/06/1338219jv.png">
+<meta property="og:updated_time" content="2017-09-25T08:20:03.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS系列——盒模型">
 <meta name="twitter:description" content="CSS盒子模型是网页布局的基础——每一个元素都被表示成一个矩形框，盒子的内容、填充、边框和边缘都是像洋葱的层次一样互相叠起来的。当浏览器呈现一个WEB页面布局时，它会计算出什么样式应用于每个框的内容、周围的洋葱有多大，以及这些盒子之间的位置。在了解了CSS盒模型之后，我们就能够更好的用CSS对页面进行布局了。 1. 盒模型包括那些内容每个盒子包括如下几个部分：  外边距（margin） 边框（bo">
@@ -176,7 +179,7 @@
 <p>布局所占宽度Width：<br>Width = width + padding-left + padding-right + border-left + border-right + margin-left + margin-right  </p>
 <p>布局所占高度Height:<br>Height = height + padding-top + padding-bottom + border-top + border-bottom + margin-left + margin-right</p>
 </blockquote>
-<p><strong>padding-box</strong></p>
+<p><strong>padding-box</strong>——已删除</p>
 <blockquote>
 <p>布局所占宽度Width：<br>Width = width(包含padding-left + padding-right) + border-top + border-bottom + margin-left + margin-right  </p>
 <p>布局所占高度Height:<br>Height = height(包含padding-top + padding-bottom) + border-top + border-bottom + margin-left + margin-right</p>
@@ -186,7 +189,7 @@
 <p>布局所占宽度Width：<br>Width = width(包含padding-left + padding-right + border-left + border-right) + margin-left + margin-right  </p>
 <p>布局所占高度Height:<br>Height = height(包含padding-top + padding-bottom + border-top + border-bottom) + margin-left + margin-right</p>
 </blockquote>
-<h4 id="box-sizing属性"><a href="#box-sizing属性" class="headerlink" title="box-sizing属性"></a>box-sizing属性</h4><h4 id="盒模型不同的表现"><a href="#盒模型不同的表现" class="headerlink" title="盒模型不同的表现"></a>盒模型不同的表现</h4><h4 id="margin外边距叠加"><a href="#margin外边距叠加" class="headerlink" title="margin外边距叠加"></a>margin外边距叠加</h4><p>在CSS中，两个或多个毗邻（父子元素或兄弟元素）的普通文档流的款元素垂直方向上的margin会发生叠加。这种方式形成的外边距即可称为外边距叠加（collapsed margin）</p>
+<h4 id="margin外边距叠加"><a href="#margin外边距叠加" class="headerlink" title="margin外边距叠加"></a>margin外边距叠加</h4><p>在CSS中，两个或多个毗邻（父子元素或兄弟元素）的普通文档流的款元素垂直方向上的margin会发生叠加。这种方式形成的外边距即可称为外边距叠加（collapsed margin）</p>
 <blockquote>
 <p>何为毗邻：是指没有被非空内容，padding、border或clear分隔开。<br>何为普通流：除浮动（float）、绝对定位(position)外的代码即为普通流。</p>
 </blockquote>
@@ -218,7 +221,35 @@
 <li>如果一个元素的 min-height 为0、没有 border、没有padding、高度为0或者auto、不包含子元素，那么它自身的外边距会发生叠加</li>
 </ul>
 <p><strong>参考</strong><br><a href="http://geekplux.com/2014/03/14/collapsing_margins.html" target="_blank" rel="external">http://geekplux.com/2014/03/14/collapsing_margins.html</a><br><a href="http://justcode.ikeepstudying.com/2016/07/css-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3bfc%E5%92%8Cmargin-collapse-margin%E5%8F%A0%E5%8A%A0%E6%88%96%E8%80%85%E5%90%88%E5%B9%B6%E5%A4%96%E8%BE%B9%E8%B7%9D/" target="_blank" rel="external">http://justcode.ikeepstudying.com/2016/07/css-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3bfc%E5%92%8Cmargin-collapse-margin%E5%8F%A0%E5%8A%A0%E6%88%96%E8%80%85%E5%90%88%E5%B9%B6%E5%A4%96%E8%BE%B9%E8%B7%9D/</a><br><a href="http://www.hujuntao.com/web/css/css-margin-overlap.html" target="_blank" rel="external">http://www.hujuntao.com/web/css/css-margin-overlap.html</a><br><a href="https://segmentfault.com/a/1190000010346113" target="_blank" rel="external">https://segmentfault.com/a/1190000010346113</a></p>
-<h4 id="盒模型应用"><a href="#盒模型应用" class="headerlink" title="盒模型应用"></a>盒模型应用</h4><h4 id="受影响的盒模型"><a href="#受影响的盒模型" class="headerlink" title="受影响的盒模型"></a>受影响的盒模型</h4><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model</a></p>
+<h4 id="盒模型在不同情况下的表现"><a href="#盒模型在不同情况下的表现" class="headerlink" title="盒模型在不同情况下的表现"></a>盒模型在不同情况下的表现</h4><p><strong>块元素盒模型的默认宽度</strong><br>如果一个块元素没有声明明确的宽度，并且是static或者relative定位，且float没有定义，那么该块元素的宽度会保持100%的父元素内容宽度。<br>同时块元素设置padding和border时会向内扩展而不是向外扩展。<br>但是，如果块元素一旦明确设置了width属性，那么padding和border将会向外扩展。</p>
+<p><img src="http://images0.gejiawen.com/posts/css-box-model-guide/003.png" alt="默认宽度"></p>
+<p>具体代码看<a href="https://jsbin.com/savopam/edit?html,css" target="_blank" rel="external">这里</a></p>
+<p>从上面的代码和图片中我们可以看出，当没有明确声明块元素的宽度的情况下，padding和border将会向内推动，这个情况好像设置了box-sizing:border-box;一样</p>
+<p>而明确设置了块元素的宽度之后，pandding和border将会向外扩展，保证了块元素的大小为我们设置的width值，而整个盒子的大小为：</p>
+<blockquote>
+<p>盒子大小 = width = padding(left + right) + border( left + right);</p>
+</blockquote>
+<p><strong>绝对定位的盒子</strong><br>也就是设置了position属性值不为static值的时候。<br>当定义了position的盒子，没有定义宽度的时候，盒子的宽度为盒子里面内容所占据的大小。如果盒子里面的内容宽度增加，响应的盒子的宽度也会跟着增加。盒子的宽度会一直扩展，直到扩展的盒子宽度为父元素(父元素为最近的相对定位或者浏览器窗口)内容宽度100%为止。</p>
+<p><img src="https://www.qianduan.net/img/2009/06/133821ssb.png" alt="绝对定位"></p>
+<p>代码在<a href="https://jsbin.com/tiwihe/edit?html,css,output" target="_blank" rel="external">这里</a></p>
+<p><strong>浮动的盒子</strong><br>浮动无宽度的元素，所展现的盒子模型和绝对定位盒子模型的表现一样。<br>盒子的宽度会根据盒子里面内容的大小而伸缩。</p>
+<p><strong>行内元素的盒子</strong><br>不管是块元素，还是行内元素，在页面上展现的抽象都是盒子。同样的为行内元素可以设置padding、border、margin属性。<br>margin属性只能在行内元素的水平方向上起作用，也就是:margin-left,margin-right。<br>padding属性的padding-top和padding-bottom设置了之后，无法扩张行内元素的上下高度，但可以设置背景。当行内元素因为内容过多发生换行的时候，行内元素的高度为行高*行数，padding-top和padding-bottom无法撑开整个行内元素的盒子模型。<br>border属性在行内元素换行的时候，也会出现一些怪怪的情况。</p>
+<p><img src="https://www.qianduan.net/img/2009/06/1338219jv.png" alt="行内"><br><a href="https://jsbin.com/mataxu/edit?html,css,output" target="_blank" rel="external">查看代码</a></p>
+<h4 id="box-sizing的应用"><a href="#box-sizing的应用" class="headerlink" title="box-sizing的应用"></a>box-sizing的应用</h4><p>上面我们说了box-sizing这个属性，该属性允许你以特定的方式定义元素的盒模型。<br>写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box-sizing：content-box | border-box</div></pre></td></tr></table></figure></p>
+<p><strong>第一个应用：布局相关</strong><br>当页面布局会依赖padding值和border值的时候，通过设置box-sizing属性来达到我们想要的效果。<br>通过<a href="https://jsbin.com/pukozuh/edit?html,css,output" target="_blank" rel="external">这里代码</a>了解</p>
+<p><strong>第二个应用：统一form元素风格</strong><br>先看一个<a href="https://jsbin.com/befayos/edit?html,css,output" target="_blank" rel="external">代码</a></p>
+<p>通过右键审查元素，切换到盒模型图，我们可以看到：</p>
+<ul>
+<li>【type=”submit”】、【type=”reset”】、button、【type=”text”】、select、textarea默认情况下都带有2px的border;</li>
+<li>【type=”submit”】、【type=”reset”】、button默认情况下会有6px的左右padding；height在mac系统下会比在winxp win7系统下少1px,只有16px,（12px的字体时高度为17px）;</li>
+<li>【type=”text”】默认情况下会有1px的上下padding；WinXP和Win7下高度为15px，Mac系统下为14px</li>
+<li>【type=”checkbox”】默认情况下会有margin：3px 3px 3px 4px,并且宽/高度默认为13px(IE6，IE7默认大约是15px，Mac系统下只有9px)</li>
+<li>【type=”radio”】默认情况下会有margin: 3px 3px 0 5px的外边，并且宽/高度默认为13px（IE6,IE7默认大约是15px,Mac系统下只有9px）</li>
+<li>textarea默认情况带有1px的上下margin；</li>
+</ul>
+<p>然后我们通过：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> .submit,</div><div class="line">  .reset,</div><div class="line">  .button,</div><div class="line">  .text,</div><div class="line">  .select,</div><div class="line">  .textarea,</div><div class="line">  .checkbox,</div><div class="line">  .radio &#123;</div><div class="line">     margin: 0;</div><div class="line">     padding: 0;</div><div class="line">     border-width: 1px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>统一form表单元素的margin和padding以及border值。<br>然后在通过box-sizing属性，来控制以上元素的盒模型展示问题，这样当我们定义form元素的宽度和高度的一致的时候，依然能够保证我们表单元素的盒模型在可以控制之内。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  .submit,</div><div class="line">  .reset,</div><div class="line">  .button,</div><div class="line">  .text,</div><div class="line">  .select,</div><div class="line">  .textarea,</div><div class="line">  .checkbox,</div><div class="line">  .radio &#123;</div><div class="line">margin: 0;</div><div class="line">padding: 0;</div><div class="line">border-width: 1px;</div><div class="line">height: 17px;</div><div class="line">-moz-box-sizing: border-box;</div><div class="line">-webkit-box-sizing: border-box;</div><div class="line">-o-box-sizing: border-box;</div><div class="line">-ms-box-sizing: border-box;</div><div class="line">box-sizing: border-box;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model</a><br><a href="http://www.w3cplus.com/content/css3-box-sizing" target="_blank" rel="external">http://www.w3cplus.com/content/css3-box-sizing</a><br><a href="http://blog.gejiawen.com/2014/11/18/css-box-model-guide/" target="_blank" rel="external">http://blog.gejiawen.com/2014/11/18/css-box-model-guide/</a><br><a href="http://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html" target="_blank" rel="external">http://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html</a></p>
 
             </div>
           
