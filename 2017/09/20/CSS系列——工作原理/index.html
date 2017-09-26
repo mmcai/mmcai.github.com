@@ -33,17 +33,23 @@
 <link rel="canonical" href="http://blog.mmcai.cn/2017/09/20/CSS系列——工作原理/"/>
 
 
-<meta name="description" content="https://www.kancloud.cn/kancloud/stylin-with-css-note/43108http://zh.html.net/tutorials/css/lesson2.phphttps://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/How_CSS_workshttps://segme">
+<meta name="description" content="前言CSS（层叠样式表）——是一种用于向用户指定文档如何呈现的语言。使用CSS我们可以控制文档的字体颜色，字体大小，布局情况等内容，这里说的文档通常是用标记语言结构化的文本文本——HTML是最常用的标记语言，但可能还会遇到其它的标记语言，例如：SVG或者XML。呈现文档给用户意味着将其转换为用户可用的形式，Firfox，Chrome或者Internet Explorer被设计用户可视化呈现文档，通">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS系列——工作原理">
 <meta property="og:url" content="http://blog.mmcai.cn/2017/09/20/CSS系列——工作原理/index.html">
 <meta property="og:site_name" content="拾荒者">
-<meta property="og:description" content="https://www.kancloud.cn/kancloud/stylin-with-css-note/43108http://zh.html.net/tutorials/css/lesson2.phphttps://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/How_CSS_workshttps://segme">
-<meta property="og:updated_time" content="2017-09-21T07:10:57.137Z">
+<meta property="og:description" content="前言CSS（层叠样式表）——是一种用于向用户指定文档如何呈现的语言。使用CSS我们可以控制文档的字体颜色，字体大小，布局情况等内容，这里说的文档通常是用标记语言结构化的文本文本——HTML是最常用的标记语言，但可能还会遇到其它的标记语言，例如：SVG或者XML。呈现文档给用户意味着将其转换为用户可用的形式，Firfox，Chrome或者Internet Explorer被设计用户可视化呈现文档，通">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/11781/rendering.svg">
+<meta property="og:image" content="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/full-process.png">
+<meta property="og:image" content="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/dom-tree.png">
+<meta property="og:image" content="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/cssom-construction.png">
+<meta property="og:image" content="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/cssom-tree.png">
+<meta property="og:updated_time" content="2017-09-26T03:19:22.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS系列——工作原理">
-<meta name="twitter:description" content="https://www.kancloud.cn/kancloud/stylin-with-css-note/43108http://zh.html.net/tutorials/css/lesson2.phphttps://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/How_CSS_workshttps://segme">
+<meta name="twitter:description" content="前言CSS（层叠样式表）——是一种用于向用户指定文档如何呈现的语言。使用CSS我们可以控制文档的字体颜色，字体大小，布局情况等内容，这里说的文档通常是用标记语言结构化的文本文本——HTML是最常用的标记语言，但可能还会遇到其它的标记语言，例如：SVG或者XML。呈现文档给用户意味着将其转换为用户可用的形式，Firfox，Chrome或者Internet Explorer被设计用户可视化呈现文档，通">
+<meta name="twitter:image" content="https://mdn.mozillademos.org/files/11781/rendering.svg">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
@@ -127,7 +133,58 @@
 
     
             <div class="post-content">
-            <p><a href="https://www.kancloud.cn/kancloud/stylin-with-css-note/43108" target="_blank" rel="external">https://www.kancloud.cn/kancloud/stylin-with-css-note/43108</a><br><a href="http://zh.html.net/tutorials/css/lesson2.php" target="_blank" rel="external">http://zh.html.net/tutorials/css/lesson2.php</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works</a><br><a href="https://segmentfault.com/a/1190000009579565" target="_blank" rel="external">https://segmentfault.com/a/1190000009579565</a><br><a href="http://blog.csdn.net/lovejulyer/article/details/51273470" target="_blank" rel="external">http://blog.csdn.net/lovejulyer/article/details/51273470</a><br><a href="http://www.imooc.com/code/4570" target="_blank" rel="external">http://www.imooc.com/code/4570</a></p>
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>CSS（层叠样式表）——是一种用于向用户指定文档如何呈现的语言。<br>使用CSS我们可以控制文档的字体颜色，字体大小，布局情况等内容，这里说的文档通常是用标记语言结构化的文本文本——HTML是最常用的标记语言，但可能还会遇到其它的标记语言，例如：SVG或者XML。<br>呈现文档给用户意味着将其转换为用户可用的形式，Firfox，Chrome或者Internet Explorer被设计用户可视化呈现文档，通常我们称这些用来可视化标记语言的软件为——浏览器。</p>
+<h4 id="浏览器工作流程"><a href="#浏览器工作流程" class="headerlink" title="浏览器工作流程"></a>浏览器工作流程</h4><p>当我们在浏览器的地址栏里面输入一个网站，敲下回车，从服务端返回数据，到我们在浏览器界面上看到内容，这个中间的过程大致如下：</p>
+<ul>
+<li>字节 → 字符 → 令牌 → 节点 → 对象模型</li>
+<li>HTML标记转换成文档对象模型（DOM）；CSS标记转换成CSS对象模型(CSSOM)</li>
+<li>DOM和<strong>CSSOM</strong>合并成渲染树（带样式的DOM）</li>
+<li>渲染页面所需的节点</li>
+<li>对每个节点执行精确的布局</li>
+<li>绘制</li>
+</ul>
+<p><img src="https://mdn.mozillademos.org/files/11781/rendering.svg" alt="过程"></p>
+<h4 id="DOM-文档模型"><a href="#DOM-文档模型" class="headerlink" title="DOM(文档模型)"></a>DOM(文档模型)</h4><p><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/full-process.png" alt="DOM"></p>
+<ul>
+<li>转换： 浏览器从磁盘或网络读取 HTML 的原始字节，并根据文件的指定编码（例如 UTF-8）将它们转换成各个字符。</li>
+<li>令牌化： 浏览器将字符串转换成 W3C HTML5 标准规定的各种令牌，例如，“<html>”、“<body>”，以及其他尖括号内的字符串。每个令牌都具有特殊含义和一组规则。</body></html></li>
+<li>词法分析： 发出的令牌转换成定义其属性和规则的“对象”。</li>
+<li>DOM 构建： 最后，由于 HTML 标记定义不同标记之间的关系（一些标记包含在其他标记内），创建的对象链接在一个树数据结构内，此结构也会捕获原始标记中定义的父项-子项关系：HTML 对象是 body 对象的父项，body 是 paragraph 对象的父项，依此类推。<br><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/dom-tree.png" alt="DOM2"><br>浏览器每次处理 HTML 标记时，都会完成以上所有步骤：将字节转换成字符，确定令牌，将令牌转换成节点，然后构建 DOM 树。</li>
+</ul>
+<h4 id="CSSOM-样式表模型"><a href="#CSSOM-样式表模型" class="headerlink" title="CSSOM(样式表模型)"></a>CSSOM(样式表模型)</h4><p>CSSOM——层叠样式表对象模型。  </p>
+<blockquote>
+<p>如何创建出来的？</p>
+</blockquote>
+<p>由上面的我们知道，二进制字节的内容需要经过一系列的内容会转换成一个对象模型。<br>在浏览器构建DOM模型的时候，在文档的head部分会遇到style标签包裹的CSS规则或者link标签引入的样式规则。<br>然后会同构建DOM模型的时候一样，把CSS字节经过一些列的转换成CSSOM。<br><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/cssom-construction.png" alt="CSSOM"><br>CSS 字节转换成字符，接着转换成令牌和节点，最后链接到一个称为“CSS 对象模型”(CSSOM) 的树结构内：<br><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/cssom-tree.png" alt="css"></p>
+<h4 id="CSS应用规则"><a href="#CSS应用规则" class="headerlink" title="CSS应用规则"></a>CSS应用规则</h4><p>1.HTML 经过解析生成 DOM Tree（这个我们比较熟悉）；而在 CSS 解析完毕后，需要将解析的结果与 DOM Tree 的内容一起进行分析建立一棵 Render Tree，最终用来进行绘图。Render Tree 中的元素（WebKit 中称为「renderers」，Firefox 下为「frames」）与 DOM 元素相对应，但非一一对应：一个 DOM 元素可能会对应多个 renderer，如文本折行后，不同的「行」会成为 render tree 种不同的 renderer。也有的 DOM 元素被 Render Tree 完全无视，比如 display:none 的元素。</p>
+<p>2.在建立 Render Tree 时（WebKit 中的「Attachment」过程），浏览器就要为每个 DOM Tree 中的元素根据 CSS 的解析结果（Style Rules）来确定生成怎样的 renderer。对于每个 DOM 元素，必须在所有 Style Rules 中找到符合的 selector 并将对应的规则进行合并。选择器的「解析」实际是在这里执行的，在遍历 DOM Tree 时，从 Style Rules 中去寻找对应的 selector。</p>
+<p>3.因为所有样式规则可能数量很大，而且绝大多数不会匹配到当前的 DOM 元素（因为数量很大所以一般会建立规则索引树），所以有一个快速的方法来判断「这个 selector 不匹配当前元素」就是极其重要的。</p>
+<p>4.如果正向解析，例如「div div p em」，我们首先就要检查当前元素到 html 的整条路径，找到最上层的 div，再往下找，如果遇到不匹配就必须回到最上层那个 div，往下再去匹配选择器中的第一个 div，回溯若干次才能确定匹配与否，效率很低。</p>
+<p>5.逆向匹配则不同，如果当前的 DOM 元素是 div，而不是 selector 最后的 em，那只要一步就能排除。只有在匹配时，才会不断向上找父节点进行验证。</p>
+<p>6.但因为匹配的情况远远低于不匹配的情况，所以逆向匹配带来的优势是巨大的。同时我们也能够看出，在选择器结尾加上「*」就大大降低了这种优势，这也就是很多优化原则提到的尽量避免在选择器末尾添加通配符的原因。</p>
+<p>简单的来说浏览器从右到左进行查找的好处是为了尽早过滤掉一些无关的样式规则和元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">   &lt;div class=&quot;Aaron&quot;&gt;</div><div class="line">      &lt;p&gt;&lt;span&gt;s1&lt;/span&gt;&lt;/p&gt;</div><div class="line">      &lt;p&gt;&lt;span&gt;s2&lt;/span&gt;&lt;/p&gt;</div><div class="line">      &lt;p&gt;&lt;span&gt;s3&lt;/span&gt;&lt;/p&gt;</div><div class="line">      &lt;p&gt;&lt;span class=&apos;red&apos;&gt;s4&lt;/span&gt;&lt;/p&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>CSS选择器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div &gt; div.Aaron p span.red&#123;</div><div class="line">   color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>而如果按从左到右的方式进行查找：</p>
+<ol>
+<li><p>先找到所有div节点</p>
+</li>
+<li><p>第一个div节点内找到所有的子div,并且是class=”Aaron”</p>
+</li>
+<li><p>然后再一次匹配p span.red等情况</p>
+</li>
+<li><p>遇到不匹配的情况，就必须回溯到一开始搜索的div或者p节点，然后去搜索下个节点，重复这样的过程。这样的搜索过程对于一个只是匹配很少节点的选择器来说，效率是极低的，因为我们花费了大量的时间在回溯匹配不符合规则的节点。</p>
+</li>
+</ol>
+<p>如果换个思路，我们一开始过滤出跟目标节点最符合的集合出来，再在这个集合进行搜索，大大降低了搜索空间。</p>
+<p>从右到左来解析选择器：</p>
+<p>则首先就查找到<span class="red">的元素。</span></p>
+<p>Firefox称这种查找方式为key selector(关键字查询)，所谓的关键字就是样式规则中最后(最右边)的规则，上面的key就是span.red。</p>
+<p>紧接着我们判断这些节点中的前兄弟节点是否符合p这个规则，这样就又减少了集合的元素，只有符合当前的子规则才会匹配再上一条子规则。</p>
+<p>要知道DOM树是一个什么样的结构，一个元素可能有若干子元素，如果每一个都去判断一下显然性能太差。而一个子元素只有一个父元素，所以找起来非常方便。你可以看看CSS的选择器的设计，完全是为了优化从子元素找父元素而决定的。</p>
+<p>打个比如 p span.showing</p>
+<p>你认为从一个p元素下面找到所有的span元素并判断是否有class showing快，还是找到所有的span元素判断是否有class showing并且包括一个p父元素快 ？</p>
+<p>所以浏览器解析CSS的引擎就是用这样的算法。</p>
+<p><a href="https://www.kancloud.cn/kancloud/stylin-with-css-note/43108" target="_blank" rel="external">https://www.kancloud.cn/kancloud/stylin-with-css-note/43108</a><br><a href="http://zh.html.net/tutorials/css/lesson2.php" target="_blank" rel="external">http://zh.html.net/tutorials/css/lesson2.php</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works</a><br><a href="https://segmentfault.com/a/1190000009579565" target="_blank" rel="external">https://segmentfault.com/a/1190000009579565</a><br><a href="http://blog.csdn.net/lovejulyer/article/details/51273470" target="_blank" rel="external">http://blog.csdn.net/lovejulyer/article/details/51273470</a><br><a href="http://www.imooc.com/code/4570" target="_blank" rel="external">http://www.imooc.com/code/4570</a><br><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/critical-rendering-path/</a><br><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model</a></p>
 
             </div>
           
