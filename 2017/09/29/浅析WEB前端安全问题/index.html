@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="浅析WEB前端安全问题"/>
+
+
+
+
+  <meta name="keywords" content="浅析,WEB前端,前端安全,XSS,CSRF," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="拾荒者">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://blog.mmcai.cn/2017/09/29/浅析WEB前端安全问题/"/>
+
+
+<meta name="description" content="常见的WEB前端安全问题，有两种  XSS——跨域脚本攻击 CSRF——跨域请求伪造  XSS这种攻击的根本是通过构造特殊数据，往前端页面上注入JS代码并执行，从而造成危害。常见的攻击形式有如下几种1、通过在表单往数据库中插入标签和相关JS代码，当前端获取从后台回传的时候执行其JS来攻击2、通过插入一个 标签，并执行img标签上面的onerror函数，来注入JS代码3、不要想先任何来自用户的输入">
+<meta name="keywords" content="浅析,WEB前端,前端安全,XSS,CSRF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅析WEB前端安全问题">
+<meta property="og:url" content="http://blog.mmcai.cn/2017/09/29/浅析WEB前端安全问题/index.html">
+<meta property="og:site_name" content="拾荒者">
+<meta property="og:description" content="常见的WEB前端安全问题，有两种  XSS——跨域脚本攻击 CSRF——跨域请求伪造  XSS这种攻击的根本是通过构造特殊数据，往前端页面上注入JS代码并执行，从而造成危害。常见的攻击形式有如下几种1、通过在表单往数据库中插入标签和相关JS代码，当前端获取从后台回传的时候执行其JS来攻击2、通过插入一个 标签，并执行img标签上面的onerror函数，来注入JS代码3、不要想先任何来自用户的输入">
+<meta property="og:updated_time" content="2017-09-29T07:54:02.866Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅析WEB前端安全问题">
+<meta name="twitter:description" content="常见的WEB前端安全问题，有两种  XSS——跨域脚本攻击 CSRF——跨域请求伪造  XSS这种攻击的根本是通过构造特殊数据，往前端页面上注入JS代码并执行，从而造成危害。常见的攻击形式有如下几种1、通过在表单往数据库中插入标签和相关JS代码，当前端获取从后台回传的时候执行其JS来攻击2、通过插入一个 标签，并执行img标签上面的onerror函数，来注入JS代码3、不要想先任何来自用户的输入">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 浅析WEB前端安全问题 - 拾荒者 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">拾荒者</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                归档
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                关于
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          浅析WEB前端安全问题
+        
+      </h1>
+
+      <time class="post-time">
+          9月 29 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>常见的WEB前端安全问题，有两种</p>
+<ul>
+<li>XSS——跨域脚本攻击</li>
+<li>CSRF——跨域请求伪造</li>
+</ul>
+<h4 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h4><p>这种攻击的根本是通过构造特殊数据，往前端页面上注入JS代码并执行，从而造成危害。<br>常见的攻击形式有如下几种<br>1、通过在表单往数据库中插入<script>标签和相关JS代码，当前端获取从后台回传的时候执行其JS来攻击<br>2、通过插入一个<img> 标签，并执行img标签上面的onerror函数，来注入JS代码<br>3、<br>不要想先任何来自用户的输入</p>
+<h4 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h4><p>CSRF则是通过伪造请求数据，往后端增删改查数据来进行攻击。</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://segmentfault.com/a/1190000006672214#articleHeader7">https://segmentfault.com/a/1190000006672214#articleHeader7</a><br><a href="https://breeswish.org/blog/2014/07/01/common-web-dev-security-issues/">https://breeswish.org/blog/2014/07/01/common-web-dev-security-issues/</a></p>
+</script></p>
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/浅析/">浅析</a>
+		  
+			<a href="/tags/WEB前端/">WEB前端</a>
+		  
+			<a href="/tags/前端安全/">前端安全</a>
+		  
+			<a href="/tags/XSS/">XSS</a>
+		  
+			<a href="/tags/CSRF/">CSRF</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/09/26/浏览器的工作原理/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">浏览器的工作原理</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    &copy;2017-2018 浙ICP备17002319号-1
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
